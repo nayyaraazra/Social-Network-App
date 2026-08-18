@@ -1,28 +1,39 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-    <div class="container mt-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h2>{{ profile_user.username }}</h2>
-                <p><strong>Followers:</strong> {{ followers_count }} | <strong>Following:</strong> {{ following_count }}</p>
-                
-                {% if user.is_authenticated and user != profile_user %}
-                    <form action="{% url 'follow' profile_user.username %}" method="post">
-                        {% csrf_token %}
-                        {% if is_following %}
-                            <button type="submit" class="btn btn-danger">Unfollow</button>
-                        {% else %}
-                            <button type="submit" class="btn btn-primary">Follow</button>
-                        {% endif %}
-                    </form>
-                {% endif %}
+    <div class="card mb-4 shadow-sm border-0" style="border-radius: 16px;">
+        <div class="card-body text-center py-5">
+            <div class="mb-3">
+                <i class="fa-solid fa-user-circle text-primary" style="font-size: 4rem;"></i>
             </div>
+            <h2 class="font-weight-bold mb-3">{{ profile_user.username }}</h2>
+            
+            <div class="d-flex justify-content-center mb-4 gap-3">
+                <div class="px-4 border-right">
+                    <h5 class="font-weight-bold mb-0">{{ followers_count }}</h5>
+                    <span class="text-muted small text-uppercase font-weight-bold">Followers</span>
+                </div>
+                <div class="px-4">
+                    <h5 class="font-weight-bold mb-0">{{ following_count }}</h5>
+                    <span class="text-muted small text-uppercase font-weight-bold">Following</span>
+                </div>
+            </div>
+            
+            {% if user.is_authenticated and user != profile_user %}
+                <form action="{% url 'follow' profile_user.username %}" method="post">
+                    {% csrf_token %}
+                    {% if is_following %}
+                        <button type="submit" class="btn btn-outline-danger px-4 rounded-pill"><i class="fa-solid fa-user-minus mr-1"></i> Unfollow</button>
+                    {% else %}
+                        <button type="submit" class="btn btn-primary px-4 rounded-pill shadow-sm"><i class="fa-solid fa-user-plus mr-1"></i> Follow</button>
+                    {% endif %}
+                </form>
+            {% endif %}
         </div>
+    </div>
 
-        <h4>Posts by {{ profile_user.username }}</h4>
-        <div id="posts-container">
-            {% include "network/posts.html" %}
-        </div>
+    <h4 class="mb-4"><i class="fa-solid fa-list-ul text-primary mr-2"></i> Posts by {{ profile_user.username }}</h4>
+    <div id="posts-container">
+        {% include "network/posts.html" %}
     </div>
 {% endblock %}

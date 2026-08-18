@@ -1,24 +1,32 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm" style="border-radius: 16px;">
+                <div class="card-body p-5">
+                    <h2 class="font-weight-bold text-center mb-4">Login</h2>
+                    
+                    {% if message %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% endif %}
 
-    <h2>Login</h2>
+                    <form action="{% url 'login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <input autofocus class="form-control form-control-lg rounded-pill px-4 bg-light border-0" type="text" name="username" placeholder="Username" style="font-size: 1rem;">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input class="form-control form-control-lg rounded-pill px-4 bg-light border-0" type="password" name="password" placeholder="Password" style="font-size: 1rem;">
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block rounded-pill shadow-sm" type="submit">Login</button>
+                    </form>
 
-    {% if message %}
-        <div>{{ message }}</div>
-    {% endif %}
-
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+                    <div class="text-center mt-4 text-muted">
+                        Don't have an account? <a href="{% url 'register' %}" class="font-weight-bold">Register here</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-        <input class="btn btn-primary" type="submit" value="Login">
-    </form>
-
-    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
-
+    </div>
 {% endblock %}

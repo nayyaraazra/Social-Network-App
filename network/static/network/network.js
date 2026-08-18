@@ -83,12 +83,15 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(result => {
                 likeCountSpan.innerText = result.likes;
+                const icon = this.querySelector('i');
                 if (result.liked) {
-                    this.classList.remove('btn-outline-danger');
-                    this.classList.add('btn-danger');
+                    this.classList.add('liked');
+                    icon.classList.remove('fa-regular');
+                    icon.classList.add('fa-solid', 'text-danger');
                 } else {
-                    this.classList.remove('btn-danger');
-                    this.classList.add('btn-outline-danger');
+                    this.classList.remove('liked');
+                    icon.classList.remove('fa-solid', 'text-danger');
+                    icon.classList.add('fa-regular');
                 }
             })
             .catch(error => {

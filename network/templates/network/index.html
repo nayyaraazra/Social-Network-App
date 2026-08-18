@@ -1,26 +1,27 @@
 {% extends "network/layout.html" %}
 
 {% block body %}
-    <div class="container mt-4">
-        <h2>All Posts</h2>
+    <div class="mb-4 d-flex justify-content-between align-items-center">
+        <h2><i class="fa-solid fa-house text-primary mr-2"></i> All Posts</h2>
+    </div>
         
-        {% if user.is_authenticated %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">New Post</h5>
-                    <form action="{% url 'new_post' %}" method="post">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <textarea class="form-control" name="content" rows="3" placeholder="What's on your mind?"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Post</button>
-                    </form>
-                </div>
+    {% if user.is_authenticated %}
+        <div class="card new-post-card mb-4">
+            <div class="card-body">
+                <form action="{% url 'new_post' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group mb-2">
+                        <textarea class="form-control" name="content" rows="3" placeholder="What's on your mind, {{ user.username }}?"></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary px-4 shadow-sm"><i class="fa-solid fa-paper-plane mr-1"></i> Post</button>
+                    </div>
+                </form>
             </div>
-        {% endif %}
-        
-        <div id="posts-container">
-            {% include "network/posts.html" %}
         </div>
+    {% endif %}
+    
+    <div id="posts-container">
+        {% include "network/posts.html" %}
     </div>
 {% endblock %}
