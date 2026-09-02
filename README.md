@@ -48,10 +48,10 @@ Users can click a heart icon on any post to toggle whether or not they "like" th
 - **Communication:** Asynchronous JavaScript (Fetch API), RESTful API Endpoints
 
 ## UI / UX Enhancements
-- **Modern Typography:** Uses Google's `Inter` font.
-- **Micro-animations & Icons:** Integrated FontAwesome 6 icons with smooth CSS hover transitions.
-- **Glassmorphism & Shadows:** Replaced standard elements with sleek, borderless cards featuring soft drop shadows and rounded corners.
-- **Dynamic Liked State:** Heart icon smoothly scales and turns red when clicked.
+- **Modern Typography
+- **Micro-animations & Icons
+- **Glassmorphism & Shadows
+- **Dynamic Liked State
 
 ## Getting Started
 
@@ -66,4 +66,4 @@ Users can click a heart icon on any post to toggle whether or not they "like" th
    ```bash
    python manage.py runserver
    ```
-5. Open your browser and navigate to `http://127.0.0.1:8000/`. You can register a new account to test out all the features!
+5. Open your browser and navigate to your localhost
