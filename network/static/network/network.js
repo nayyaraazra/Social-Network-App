@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Add event listeners to all edit buttons
     const editButtons = document.querySelectorAll('.edit-btn');
     editButtons.forEach(btn => {
         btn.addEventListener('click', function() {
@@ -9,23 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const contentDiv = card.querySelector('.post-content');
             const originalContent = contentDiv.innerText;
             
-            // Hide the edit button
             this.style.display = 'none';
             
-            // Replace text with a textarea and save button
             contentDiv.innerHTML = `
                 <textarea class="form-control mb-2" id="edit-textarea-${postId}">${originalContent}</textarea>
                 <button class="btn btn-sm btn-success save-btn" data-post-id="${postId}">Save</button>
                 <button class="btn btn-sm btn-secondary cancel-btn" data-post-id="${postId}">Cancel</button>
             `;
             
-            // Event listener for cancel button
             contentDiv.querySelector('.cancel-btn').addEventListener('click', function() {
                 contentDiv.innerText = originalContent;
                 btn.style.display = 'inline-block';
             });
             
-            // Event listener for save button
             contentDiv.querySelector('.save-btn').addEventListener('click', function() {
                 const newContent = contentDiv.querySelector('textarea').value;
                 
@@ -59,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add event listeners to all like buttons
     const likeButtons = document.querySelectorAll('.like-btn');
     likeButtons.forEach(btn => {
         btn.addEventListener('click', function() {

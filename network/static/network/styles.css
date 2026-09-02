@@ -1,22 +1,17 @@
-/* Global Styles */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f4f6f8;
     color: #333;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     color: #1a1a1a;
 }
-
-/* Navbar */
 .custom-navbar {
     padding: 1rem 2rem;
     border-bottom: 1px solid #eaeaea;
 }
-
 .custom-navbar .nav-link {
     font-weight: 500;
     color: #555 !important;
@@ -39,7 +34,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem 15px;
 }
 
-/* Cards (Posts and Forms) */
 .card {
     border: none;
     border-radius: 12px;
@@ -58,7 +52,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem;
 }
 
-/* Post Specific Styles */
 .post-author {
     font-size: 1.1rem;
     font-weight: 600;
@@ -85,7 +78,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #444;
 }
 
-/* Like Button */
 .like-btn {
     background: none;
     border: none;
@@ -111,7 +103,6 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Edit Button */
 .edit-btn {
     background: none;
     border: 1px solid #eaeaea;
@@ -128,7 +119,6 @@ h1, h2, h3, h4, h5, h6 {
     border-color: #ccc;
 }
 
-/* New Post Form */
 .new-post-card {
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -155,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-/* Pagination */
+
 .pagination {
     justify-content: center;
     margin-top: 2rem;
